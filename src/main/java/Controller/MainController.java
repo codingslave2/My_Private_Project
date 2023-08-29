@@ -30,9 +30,9 @@ public class MainController {
 		return "contact";
 	}
 
-	@GetMapping("/register")
-    public String responseRegister() {
+	@GetMapping("/form/RegisterForm")
+    public String responseRegisterForm() {
 		logger.info("회원 가입 페이지로 이동");
-		return "registerForm";
+		return "RegisterForm";
 	}
 }

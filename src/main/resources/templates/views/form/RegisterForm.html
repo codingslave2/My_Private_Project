@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${user}" method="post">
+    <table border="">
+        <tr>
+            <td>ID</td>
+            <td><input type="text" name="pid" th:field="*{pid}"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="pw" th:field="*{pw}"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td><input type="email" name="email" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td>전화번호</td>
+            <td><input type="tel" name="phone" th:field="*{phone}"></td>
+        </tr>
+        <tr>
+            <td>선호 장르</td>
+            <td>
+                <div th:each="genre : ${genres}">
+                    <label><input type="checkbox" name="genrePreference" th:value="${genre}" th:field="*{genrePreference}"> <span th:text="${genre}"></span></label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>선호하는 기타 모델</td>
+            <td>
+                <div th:each="genre : ${genres}">
+                    <label><input type="checkbox" name="guitarPreference" th:value="${guitarTypes}" th:field="*{guitarPreference}"> <span th:text="${guitarTypes}"></span></label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="회원 가입"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
